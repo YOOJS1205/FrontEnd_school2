@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextLevel</title>
+</head>
+<body>
+    <!-- html 코드로만 반응형 구현하기 -->
+
+    <!-- <img srcset="images/3.png 500w,
+                 images/2.png 300w,
+                 images/1.png 150w"
+         src="images/1.png"
+         sizes="(min-width: 960px) 500px,
+                (min-width: 620px) 300px,
+                150px"  
+         alt="rabbit"> -->
+    
+    <picture>
+        <source srcset="images/3.png" media="
+        (min-width: 960px)">
+        <source srcset="images/2.png" media="
+        (min-width: 640px)">
+        <!-- media 속성이 조건 걸어줌 -->
+        <!-- picture 태그: 점진적 향상 기법, 포맷(확장자) 바꿔줌 -->
+        <img src="images/1.png" alt="">
+    </picture>
+</body>
+</html>

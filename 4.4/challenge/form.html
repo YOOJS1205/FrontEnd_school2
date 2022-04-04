@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Form</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <form class="container">
+        <header>
+            <h1>나와 잘 맞는 회사는?</h1>
+            <p class="subtext">가고 싶은 회사에 대한 호감도를 조사합니다. 아이고 의미 없다.</p>
+            <p class="social"></p>
+        </header>
+        <main>
+            <section class="form-box">
+                <p class="title">다음 문자중에 왠지 마음에 드는 것을 하나 고르세요</p>
+                <div class="content">
+                    <input type="radio" id="naver" name="company">
+                    <label for="naver">네</label>
+                </div>
+                <div class="content">
+                    <input type="radio" id="kakao" name="company">
+                    <label for="kakao">카</label>
+                </div>
+                <div class="content">
+                    <input type="radio" id="line" name="company">
+                    <label for="line">라</label>
+                </div>
+                <div class="content">
+                    <input type="radio" id="coupang" name="company">
+                    <label for="coupang">쿠</label>
+                </div>
+                <div class="content">
+                    <input type="radio" id="delivery" name="company">
+                    <label for="delivery">배</label>
+                </div>
+            </section>
+            <section class="form-box">
+                <p class="title">친구와 문자를 합니다. 다음중 어떤 메신저를 이용하시겠습니까? 모두 골라주세요.</p>
+                <div class="content">
+                    <input type="checkbox" id="kakaotalk" name="message">
+                    <label for="kakaotalk">카카오톡</label>
+                </div>
+                <div class="content">
+                    <input type="checkbox" id="linechat" name="message">
+                    <label for="linechat">라인</label>
+                </div>
+                <div class="content">
+                    <input type="checkbox" id="dm" name="message">
+                    <label for="dm">인스타그램 디엠</label>
+                </div>
+                <div class="content">
+                    <input type="checkbox" id="nateon" name="message">
+                    <label for="nateon">네이트온</label>
+                </div>
+                <div class="content">
+                    <input type="checkbox" id="buddy" name="message">
+                    <label for="buddy">버디버디</label>
+                </div>
+            </section>
+            <section class="form-box">
+                <p class="title">면접에서 자신의 포부를 한 문장으로 얘기한다면?</p>
+                <input type="text" placeholder="내 답변" name="ambition">
+            </section>
+            <section class="form-box">
+                <p class="title">당신은 지금 한 기업의 최종면접을 앞두고 있습니다. 면접장에 들어가기 직전, 자기 자신에게 해주고 싶은말은?</p>
+                <input type="text" placeholder="내 답변" name="myself">
+            </section>
+            <section class="form-box">
+                <p class="title">다음 중 기술 면접때 듣고 싶은 질문이 아닌것은?</p>
+                <select name="ask" id="">
+                    <option value="">선택</option>
+                    <option value="fool">바보야</option>
+                    <option value="foolish">멍청아</option>
+                    <option value="dog">똥개야</option>
+                </select>
+            </section>
+            <section class="form-box">
+                <p class="title">취업을 희망하는 날짜를 선택해주세요</p>
+                <div class="content">
+                    <label for="">날짜</label>
+                </div>
+                <input type="date" name="date">
+            </section>
+            <section class="form-box">
+                <p class="title">업무를 시작 하기에 가장 적당한 시간을 고르세요</p>
+                <div class="content">
+                    <label for="">시간</label>
+                </div>
+                <input type="time" name="time">
+            </section>
+        </main>
+        <footer>
+            <button type="submit">제출</button>
+            <button type="reset">양식 지우기</button>
+        </footer>
+    </form>
+</body>
+</html>

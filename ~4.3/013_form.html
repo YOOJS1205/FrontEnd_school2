@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <style>
+        input {
+            display: block;
+            margin-bottom: 12px;
+        }
+    </style>
+
+</head>
+<!-- action: 어디로, method: 어떻게 보낼것인가 -->
+<!-- get: url 쿼리스트링으로 요청 전달 post: 눈에 보이지 않음 -->
+<!-- post: body 값으로 요청 전달 -->
+<!-- get, post 차이점: url에 정보가 뜨는가 안 뜨는가 -->
+<!-- Create, Read, Update, Delete (CRUD) -->
+<body>
+    <form action="./013_form.html" method="get">
+        <!-- radio => 택 1, checkbox => 여러가지 체크 -->
+        <!-- radio 태그의 name 속성을 통일하면 택1 구현 가능 -->
+        <input type="text" name="userId">
+        <input type="password" name="userPw">
+        <input type="checkbox" name="" id="">
+        <input type="radio" checked name="" id="">
+        <input type="color" name="" id="">
+        <input type="date" name="" id="">
+        <input type="datetime" name="" id="">
+        <input type="email" name="" id="">
+        <input type="hidden" name="">
+        <input type="range" name="" id="">
+        <input type="number" name="" id="">
+        <input type="url" name="" id="">
+        <input type="file" name="" id="">
+        <button type="submit">로그인</button>
+    </form>
+</body>
+</html>

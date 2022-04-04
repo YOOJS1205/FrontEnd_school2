@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+<body>
+    <!-- type으로 입력 양식 맞춤 (모바일) -->
+    <!-- action 속성 => 데이터를 어디로 / method => 데이터를 어떻게 -->
+    <form action="" method="get">
+        <label for="myDevice">현재 사용하고 있는 스마트폰의 제조사를 선택해주세요</label>
+        <select name="device" id="myDevice">
+          <option value="iphone">아이폰</option>
+          <option value="galaxy">갤럭시폰</option>
+          <option value="ㅜㅜ">LG폰</option>
+        </select>
+        <input type="submit">
+    </form>
+
+    <!-- name 속성 => 키 / value => 값 (서버에 정보 저장할 때) -->
+    <!-- button의 타입을 명시하자! -->
+    <!-- input submit vs button submit => button이 내부 디자인 용이
+        기능적인 차이는 x -->
+
+    <form action="">
+        <fieldset>
+          <legend>개인정보</legend>
+          <label for="myName">이름</label>
+          <input type="text" name="name" id="myName">
+          <label for="myTel">전화번호</label>
+          <input type="tel" name="tel" id="myTel">
+          <label for="myEmail">이메일</label>
+          <input type="email" name="email" id="myEmail">
+        </fieldset>
+        <fieldset>
+          <legend>개인정보 제공 동의</legend>
+          <label for="checkAgree">개인정보 제공에 동의하십니까?</label>
+          <input type="checkbox" name="agree" id="checkAgree">
+          <button type="submit">버튼입니다.</button>
+        </fieldset>
+    </form>
+</body>
+</html>
