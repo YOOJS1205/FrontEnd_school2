@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table</title>
+    <style>
+        td, th {
+            border: 1px solid rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- 테이블 제목, 접근성, SEO 측면에서 명시 필요 -->
+    <!-- 병합 => colspan, rowspan -->
+    <table>
+        <caption> 이달의 책 판매량 </caption>
+        <tr>
+            <th>구분</th>
+            <th colspan="2">이름</th>
+            <!-- <th>판매량</th> -->
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>해리포터</td>
+            <td rowspan="2">100</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>해리포터2</td>
+        </tr>
+    </table>
+</body>
+</html>
