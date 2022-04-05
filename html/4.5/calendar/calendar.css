@@ -1,0 +1,42 @@
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+.calendar {
+    width: 70%;
+    height: auto;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 70px;
+    color: red;
+}
+
+section {
+    padding-top: 45px;
+    font-size: 12px;
+}
+
+.line {
+    text-align: center;
+}
+
+.month {
+    display: inline;
+}
+
+tr {
+    font-size: 8px;
+}
+
+.sun {
+    color: red;
+}
