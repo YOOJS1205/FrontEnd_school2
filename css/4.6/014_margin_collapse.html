@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>margin collapse</title>
+    <style>
+        /* div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        .first {
+            margin-bottom: 30px;
+        }
+        .second {
+            margin-top: 60px;
+        } */
+        .parent {
+            background-color: yellow;
+        }
+        .child {
+            width: 100px;
+            height: 100px;
+            margin-top: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="first"></div>
+    <div class="second"></div> -->
+    <!-- <div class="third"></div> -->
+    <br>
+    <div class="parent">
+        <div class="child"></div>
+        <!-- 부모의 margin 상쇄 -->
+        <!-- 상상으로는 자식이 부모 내부에서 margin 이뤄야하는데.. -->
+        <!-- 해결 => overflow: hidden -->
+        <!-- 부모 요소에 높이를 준다해도 해결 x -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>단위</title>
+    <style>
+        h1.fixed {
+            font-size: 20px;
+        }
+        p.fixed {
+            font-size: 14px;
+        }
+        p.fluid {
+            /* 기본 사이즈 16px의 2배 */
+            /* 바로 위 부모 사이즈 기준이다 (body) => 상대적 */
+            /* rem => 최상단 부모 기준 */
+            font-size: 2em;
+        }
+        div.fixed {
+            font-size: 10px;
+        }
+        .one {
+            font-size: 2em;
+        }
+        .two {
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="fixed">Hi</h1>
+    <p class="fixed">Hi</p>
+    <p class="fluid">hi</p>
+    <div class="fixed">Hi</div>
+    <div class="fixed">
+        <div>
+            <div class="one">hi</div>
+        </div>
+    </div>
+    <div class="fixed">
+        <div>
+            <div class="two">hi</div>
+        </div>
+    </div>
+</body>
+</html>

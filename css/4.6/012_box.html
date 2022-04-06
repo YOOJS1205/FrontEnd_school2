@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        h1 {
+            box-sizing: border-box;
+            width: 300px;
+            height: 200px;
+            padding: 30px 30px 30px 30px;
+            border: 3px solid black;
+            margin: 50px;
+        }
+        strong {
+            border: 10px solid black;
+            padding: 50px;
+            /* inline 요소는 다른 요소를 밀어내지 않는다
+               => 침범한다!! */
+        }
+    </style>
+</head>
+<body>
+    <!-- background-color는 margin에 적용되지 않는다. -->
+    <!-- border 안쪽으로 적용된다!! -->
+    <!-- inline 요소 => padding, border 적용 가능
+         margin은 좌우로만 적용 가능 -->
+    <h1>안녕하세요 여러분!!</h1>
+    <h1>안녕하세요 여러분!!</h1>
+    <strong>여러분은 강합니다!!</strong>
+    <strong>만나서 반가워요!!</strong>
+    <strong>배고파요 ㅠㅠ</strong>
+</body>
+</html>
