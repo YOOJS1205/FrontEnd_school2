@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문제풀이</title>
+    <style>
+        /* + 선택자 => 해당 요소 뒤의 형제 요소를 가리킴 */
+        .a + li {
+            /* a클래스 요소 바로 뒤의 li */
+            background:red;
+        }
+        li + li + li {
+            /* li 2번 뒤 => 3번째 li => 3,4,5 번째 */
+            font-size:30px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>Apple</li>
+        <li class="a">Mango</li>
+        <li class="a">Banana</li>
+        <li>Melon</li>
+        <li>Strawberry</li>
+    </ul>
+</body>
+</html>

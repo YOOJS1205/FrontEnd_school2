@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        html, body, h1 {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            line-height: 1;
+        }
+        .container {
+            border: 1px solid black;
+            width: 300px;
+            height: 300px;
+            /* 폰트 크키보다 작으면 UI가 깨진다. => 고정값 금지 */
+            /* line-height: 10px; */
+            font-size: 16px;
+            /* 원래 font가 가진 px만큼 적용 (딱 콘텐츠 크기만큼)
+            leading 영역 => 읽기 좋으라고 자동으로 생성된 것 (margin, padding x)
+            1이 없을 시에는 leading 영역이 생긴다 => 폰트마다 상이 */
+            line-height: 1;
+        }
+        .one {
+            height: auto;
+            border: 1px solid black;
+            font-size: 10px;
+        }
+        .two {
+            height: auto;
+            border: 1px solid black;
+            font-size: 20px;
+        }
+        .three {
+            height: auto;
+            border: 1px solid black;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>hello world</h1>
+    <div class="container">
+        <div class="one">hello world</div>
+        <div class="two">hello world</div>
+        <div class="three">hello world</div>
+    </div>
+</body>
+</html>
