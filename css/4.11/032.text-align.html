@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        div {
+            border: 5px solid black;
+            margin: 10px;
+            width: 500px;
+        }
+        span {
+            border: 5px solid blue;
+        }
+        .text_center {
+            text-align: center;
+        }
+        .text_left {
+            text-align: left;
+        }
+        .text_right {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        1. text-align: center는 
+            1.1 자식인 인라인 요소
+            1.2 자식인 블록 요소
+            1.3 자식인 인라인 블록 요소
+            1.4 내부 텍스트
+        2. margin: 0 auto는
+            2.1 자기자신을 중앙정렬
+            2.2 부모의 전체 width 차지 시 중앙 정렬 x
+            2.3 자기 자신이 inline-block인 경우에는 사용 x
+            2.4 inline 요소를 display: block 으로 바꾼다음 width를
+                부모보다 좁게 사용하면 사용 가능
+        3. transform: translate(-50%), left(50%)
+        자기 자신의 margin에 영향을 받을 수 있다.
+            left(50%) => 중앙을 기준으로 콘텐츠가 시작
+            translate(-50%) => 자기 콘텐츠의 절반만큼 반대로 이동
+     -->
+     <!-- 
+         2번 vs 3번 => 조금 다르다.
+      -->
+    <div class="text_left">
+        <span>왼쪽 정렬</span>
+    </div>
+    <div class="text_right">
+        <span>오른쪽 정렬</span>
+    </div>
+    <div class="text_center">
+        <span>중앙 정렬</span>
+    </div>
+</body>
+</html>
