@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<style>
+	.wrap {
+        border: 4px solid blue;
+	}
+    .wrap::after {
+        content: '';
+        display: block;
+        clear: both;
+        /* 바로 앞에 있는 요소의 float 해제 => 내용2 해제 */
+        /* 가상 요소 => 3번째 요소와 비슷하다고 생각하면 됨 */
+        /* 부모는 마지막의 가상 요소를 인식하여 setting 됨 */
+    }
+	.content {
+        margin: 5px;
+		height: 20px;
+		border: 2px solid green;
+        float: left;
+	}
+    .container::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    .container {
+        border: 5px solid green;
+    }
+    .hello1 {
+        float: left;
+        border: 5px solid blue;
+    }
+    .hello2 {
+        float: left;
+        border: 5px solid black;
+    }
+
+</style>
+</head>
+<body>
+	<!-- <div class="wrap">
+	    <div class="content">내용1</div>
+        <div class="content">내용2</div>
+	</div> -->
+    <div class="container">
+        <div class="hello1">Hello world</div>
+        <div class="hello2">Hello world</div>
+    </div>
+</body>
+</html>

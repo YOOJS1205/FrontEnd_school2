@@ -10,7 +10,6 @@
             position: relative;
             width: 500px;
             height: 500px;
-            margin-left: 100px;
             border: 5px solid black;
         }
         .inner {
@@ -20,13 +19,12 @@
             color: white;
         }
         .inner:first-child {
-            position: static;
+            position: relative;
+            left: 50px;
             background-color: red;
         }
         .inner:nth-child(2) {
-            /* relative: 본래 static일 때 본인 위치를 기억 */
-            position: absolute;
-            left: 20px;
+            position: static;
             background-color: green;
         }
         .inner:last-child {

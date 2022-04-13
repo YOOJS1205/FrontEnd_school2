@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        /* : => 가상 클래스 선택자 */
+        /* :: => 가상 요소 선택자 */
+        .foo:nth-child(odd) {
+            color: red;
+        }
+        .foo:nth-child(even) {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="foo">1</li>
+        <li class="foo">2</li>    
+        <li class="foo">3</li>
+        <li class="foo">4</li>
+        <li class="foo">5</li>
+    </ul>
+</body>
+</html>
