@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform</title>
+    <!-- 형태 변형 -->
+    <style>
+        @keyframes 두근두근 {
+            0% {
+                transform: scale(1) rotate(60deg);
+            }
+            25% {
+                transform: scale(2);
+            }
+            50% {
+                transform: scale(1) rotate(-60deg);
+            }
+            75% {
+                transform: scale(2);
+            }
+            100% {
+                transform: scale(1) rotate(60deg);
+            }
+        }
+        div {
+            margin: 100px;
+            background-color: lightcoral;
+            width: 100px;
+            height: 100px;
+            transition: all .3s;
+        }
+        div:hover {
+            animation: 두근두근 1s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

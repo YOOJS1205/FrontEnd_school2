@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid 실습</title>
+    <style>
+        .container {
+            display: grid;
+            width: 500px;
+            height: 500px;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            gap: 10px;
+        }
+
+        .item {
+            background-position: center;
+            background-size: cover;
+        }
+        .item:nth-child(1) {
+            grid-column-start: 1;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 3;
+            background-image: url('image/1.jpg');
+        }
+        .item:nth-child(2) {
+            grid-column-start: 4;
+            grid-column-end: 6;
+            grid-row-start: 1;
+            grid-row-end: 4;
+            background-image: url('image/6.jpg');
+        }
+        .item:nth-child(3) {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            background-image: url('image/2.jpg');
+        }
+        .item:nth-child(4) {
+            background-image: url('image/5.webp');
+        }
+        .item:nth-child(5) {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 4;
+            grid-row-end: 6;
+            background-image: url('image/3.webp');
+        }   
+        .item:nth-child(6) {
+            grid-column-start: 3;
+            grid-column-end: 6;
+            grid-row-start: 4;
+            grid-row-end: 6;
+            background-image: url('image/4.jpg');
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+</body>
+</html>
