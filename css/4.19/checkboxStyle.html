@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .form-login .labl-hold{
+            display: block;
+            height:22px;
+            margin:17px 0 21px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 20px;
+            color:#767676;
+            cursor: pointer;
+        }
+        .form-login .labl-hold::before{
+            display: inline-block;
+            content:"";
+            width:22px;
+            height:22px;
+            margin-right:8px;
+            vertical-align: -5px;
+            background-image:url("images_login/icon_check_empty.png") ;
+        }
+        
+        .form-login .inp-hold:focus+.labl-hold::before{
+            outline:2px solid #000;
+            outline-offset: 5px; 
+        }
+        
+        .form-login .inp-hold:checked+.labl-hold::before{
+            background-image:url("images_login/icon_check.png") ;
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="inpHold" class="inp-hold txt-hide">
+    <label for="inpHold" class="labl-hold">로그인 상태 유지</label>
+</body>
+</html>
