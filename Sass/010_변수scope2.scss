@@ -1,0 +1,16 @@
+.one {
+    $value: red;
+    color: $value;
+    .two {
+        color: $value;
+    }
+}
+
+.one {
+    $value: red;
+    color: $value;
+    // at-root => 밖으로 빠져나옴
+    @at-root .two_ {
+        color: $value;
+    }
+}

@@ -1,0 +1,21 @@
+ul li:hover {
+  background-color: white;
+  cursor: pointer;
+}
+
+ul li:last-child {
+  border: 2px solid black;
+}
+
+ol li:nth-child(1) {
+  color: red;
+}
+
+ol li:nth-child(2) {
+  color: red;
+}
+
+ol li:nth-child(3) {
+  color: red;
+}
+/*# sourceMappingURL=004_부모선택자_엠퍼샌드_2.css.map */

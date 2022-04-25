@@ -1,0 +1,37 @@
+@mixin sample {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @content;
+}
+
+a {
+    @include sample {
+        color: white;
+    }
+}
+
+@mixin one {
+    width: 100px;
+    height: 100px;
+    color: white;
+    @content;
+}
+
+@mixin two {
+    width: 100px;
+    height: 100px;
+    color: white;
+}
+
+// 동일한 표기
+a {
+    @include one {
+        background-color: black;
+    }
+}
+
+button {
+    @include two;
+    background-color: black;
+}

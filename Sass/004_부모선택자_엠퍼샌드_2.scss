@@ -1,0 +1,25 @@
+ul {
+    li {
+        &:hover {
+            background-color: white;
+            cursor: pointer;
+        }
+        &:last-child {
+            border: 2px solid black;
+        }
+    }
+}
+
+ol {
+    li {
+        &:nth-child(1) {
+            color: red;
+        }
+        &:nth-child(2) {
+            color: red;
+        }
+        &:nth-child(3) {
+            color: red;
+        }
+    }
+}

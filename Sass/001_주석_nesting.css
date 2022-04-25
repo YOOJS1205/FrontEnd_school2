@@ -1,0 +1,23 @@
+@charset "UTF-8";
+/* 두 줄 주석 */
+ul li {
+  color: red;
+  font-size: 10px;
+}
+
+.one {
+  color: red;
+}
+
+.one .two {
+  color: green;
+}
+
+.one .two .three {
+  color: blue;
+}
+
+.one .two .four {
+  color: black;
+}
+/*# sourceMappingURL=001_주석_nesting.css.map */

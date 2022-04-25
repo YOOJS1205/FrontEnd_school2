@@ -1,0 +1,12 @@
+.one {
+    // global 사용은 지양하자.
+    $value: red !global;
+    color: $value;
+    .two {
+        color: $value;
+    }
+}
+
+.three {
+    color: $value;
+}

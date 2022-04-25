@@ -1,0 +1,27 @@
+a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+}
+
+a {
+  width: 100px;
+  height: 100px;
+  color: white;
+  background-color: black;
+}
+
+button {
+  width: 100px;
+  height: 100px;
+  color: white;
+  background-color: black;
+}
+/*# sourceMappingURL=016_mixin_contents.css.map */
