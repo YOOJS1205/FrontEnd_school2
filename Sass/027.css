@@ -1,0 +1,21 @@
+.one {
+  color: red;
+}
+
+.one .two {
+  color: blue;
+}
+
+.three {
+  color: green;
+}
+
+.three:hover {
+  background: white;
+  cursor: pointer;
+}
+
+.three-yellow {
+  background-color: yellow;
+}
+/*# sourceMappingURL=027.css.map */

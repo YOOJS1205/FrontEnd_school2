@@ -1,0 +1,9 @@
+@for $hojun from 1 through 10 {
+    // 클래스명에 달러 표시를 사용할 수 없다.
+    .photo-box-#{$hojun} {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        font-size: $hojun + px;
+    }
+}

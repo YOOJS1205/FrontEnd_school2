@@ -1,0 +1,5 @@
+@for $junsang from 1 through 10 {
+    .photo-box:nth-child(#{$junsang}) {
+        background-image: url('../assets/#{$junsang}.png');
+    }
+}

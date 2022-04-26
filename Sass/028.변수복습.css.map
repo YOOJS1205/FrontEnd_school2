@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAOA,AAAA,EAAE,CAAC;EACC,SAAS,EAPH,IAAI;CAQb;;AAED,AAAA,EAAE,CAAC;EACC,SAAS,EATI,IAAI;CAUpB;;AAED,AAAA,EAAE,CAAC;EACC,WAAW,EAXwC,GAAG;CAYzD",
+    "sources": [
+        "028.변수복습.scss"
+    ],
+    "names": [],
+    "file": "028.변수복습.css"
+}

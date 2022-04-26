@@ -1,0 +1,18 @@
+$bgColor: red;
+$font-h1: 28px;
+$valid-sides: left, center, right;
+$font-sizes: ('myh1': 45px, 'myh2': 19px, 'myp': 16px);
+
+h1 {
+    $spanColor: red; // 지역변수
+    color: $bgColor;
+    // list
+    font-size: $font-h1;
+    // map
+    font-size: map-get($font-sizes, "myh1") * 2;
+}
+
+// list의 index는 1부터 시작한다.
+p {
+    text-align: nth($valid-sides, 1);
+}

@@ -1,0 +1,9 @@
+@function pow($value) {
+    $value: $value * $value + px;
+    @return $value;
+}
+
+.box {
+    font-size: pow(10);
+    height: max(10px, 20px, 30px, 25px);
+}

@@ -1,0 +1,81 @@
+@mixin avatar($size, $circle: false) {
+    width: $size;
+    height: $size;
+
+    @if $circle {
+        border-radius: $size / 2;
+    }
+}
+
+.square-av {
+    @include avatar(100px, $circle: false);
+}
+.circle-av {
+    @include avatar(100px, $circle: true);
+}
+
+$light-background: #f2ece4;
+$light-text: #036;
+$dark-background: #6b717f;
+$dark-text: #d2e1dd;
+
+@mixin theme-colors($light-theme: true) {
+  @if $light-theme {
+    background-color: $light-background;
+    color: $light-text;
+  } @else {
+    background-color: $dark-background;
+    color: $dark-text;
+  }
+}
+
+.banner {
+    @include theme-colors($light-theme: true);
+    body.dark & {
+    @include theme-colors($light-theme: false);
+    }
+}
+
+@mixin triangle($size, $color, $direction) {
+    height: 0;
+    width: 0;
+
+    //여기 부분만 수정했습니다.
+    border-color: black;
+    border-style: solid;
+    border-width: ($size/2);
+
+
+    @if $direction == up {
+        border-bottom-color: $color;
+    } @else if $direction == right {
+        border-left-color: $color;
+    } @else if $direction == down {
+        border-top-color: $color;
+    } @else if $direction == left {
+        border-right-color: $color;
+    } @else {
+        @error "Unknown direction #{$direction}.";
+    }
+}
+
+.next {
+    @include triangle(5px, black, right);
+}
+
+@for $hojun from 1 through 7 {
+    .photo-box:nth-child(#{$hojun}) {
+        background-image: url("../assets/phoster#{$hojun}.png");
+    }
+}
+
+// each => 리스트 순회
+@each $color in $color-palette {
+    $i: index($color-palette, $color); //index는 list의 내장함수
+    .color-circle:nth-child(#{$i}) {
+        background: $color;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+    }
+}

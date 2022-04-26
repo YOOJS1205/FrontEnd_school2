@@ -1,0 +1,16 @@
+.one {
+    color: red;
+    .two {
+        color: blue;
+        @at-root .three {
+            color: green;
+            &:hover {
+                background: white;
+                cursor: pointer;
+            }
+            &-yellow {
+                background-color: yellow;
+            }
+        }
+    }
+}

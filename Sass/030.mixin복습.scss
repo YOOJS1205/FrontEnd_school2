@@ -1,0 +1,9 @@
+@mixin custon-button($width, $height) {
+    width: $width;
+    height: $height;
+    border-radius: 10px;
+}
+
+.btn {
+    @include custon-button(100px, 30px)
+}
