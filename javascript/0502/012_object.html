@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <button onclick="alert(sum(10, 20))">눌럿!</button><br>
+    <script>
+        function sum(x, y) {
+            return x + y
+        }
+        console.log(typeof sum);
+        sum.value = 'junsang';
+        console.log(console.dir(sum));
+        console.log(sum.value);
+        console.log(typeof sum);
+
+        let person = {
+            name: 'junsang',
+            age: 10,
+            height: 30,
+            weight: 40,
+            이력: {
+                'first': 'one',
+                'second': 'two',
+                '세번째직장': '위니브'
+            },
+            기능: sum
+        }
+        person.소속 = 'kakao';
+        document.write(`제 이름은 ${person.name} 입니다.<br>`);
+        document.write(`제 나이는 ${person.age} 입니다.<br>`);
+        document.write(`제 키는 ${person.height} 입니다.<br>`);
+        document.write(`제 몸무게는 ${person.weight} 입니다.<br>`);
+        document.write(`제 두번째 직장은 ${person.이력.두번째직장} 입니다.<br>`);
+        document.write(`제 세번째 직장은 ${person.이력.세번째직장} 입니다.<br>`);
+        document.write(`제 기능은 ${person.기능(100, 200)} 입니다.<br>`);
+
+        let 이호준상세정보 = {
+            이력 : {
+                '첫번째직장' : {
+                    '회사이름' : '바울랩',
+                    '부서' : '경영지원',
+                    '직책' : '대표',
+                },
+                '두번째직장' : {
+                    '회사이름' : 'SEMSANG',
+                    '부서' : '경영지원',
+                    '직책' : '대표',
+                },
+                '세번째직장' : {
+                    '회사이름' : 'SINHUN',
+                    '부서' : '경영지원',
+                    '직책' : {
+                        '첫번째직책':'사원',
+                        '두번째직책':'대표',
+                    },
+                },
+            },
+        }
+        console.log(이호준상세정보.이력.세번째직장.직책.두번째직책);
+
+        // 키에 따옴표를 사용하는 이유 => 띄어쓰기가 있을수도 있어.
+
+        let txt = 'hello';
+        let txt2 = {
+            0: 'h',
+            1: 'e',
+            2: 'l',
+            3: 'l',
+            4: '0',
+        }
+        console.log(txt[1]);
+        console.log(txt2[1]);
+
+        // 프로토타입 vs no 프로토타입
+    </script>
+</body>
+</html>

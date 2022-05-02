@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>!!</title>
+</head>
+<body>
+    <script>
+        document.write(`1. ${'0' == 0}<br>`);
+        document.write(`2. ${'0' === 0}<br>`);
+        document.write(`3. ${false == 0}<br>`);
+        document.write(`3.1. ${false === 0}<br>`);
+        document.write(`4. ${true == 1}<br>`);
+        document.write(`5. ${false == '0'}<br>`);
+        document.write(`6. ${true == '1'}<br>`);
+        document.write(`7. ${false == 'false'}<br>`);
+        document.write(`8. ${0 == ''}<br>`); // 주의
+        document.write(`9. ${false == ''}<br>`); // 주의
+        document.write(`10. ${false == null}<br>`); // 주의
+        document.write(`11. ${false == undefined}<br>`); // 주의
+        document.write(`12. ${NaN == NaN}<br>`); // 주의
+        document.write(`13. ${NaN === NaN}<br>`); // 주의
+        document.write(`14. ${isNaN(undefined)}<br>`); // 주의
+        document.write(`15. ${isNaN(null)}<br>`); // 주의 (false)
+        document.write(`16. ${isNaN(NaN)}<br>`); // 주의
+        document.write(`${Number.isNaN(undefined)}<br>`);
+        document.write(`${Number.isNaN(null)}<br>`);
+        document.write(`${Number.isNaN(NaN)}<br>`);
+        document.write(`17. ${!([])}<br>`); // 주의
+        document.write(`18. ${!({})}<br>`); // 주의
+        if ([]) {
+            console.log('hello world 1');
+        }
+        if ({}) {
+            console.log('hello world 2');
+        }
+        if ('') {
+            console.log('hello world 3');
+        }
+
+        console.log('-----------------');
+        console.log(`1. ${false === !!undefined}`);
+        console.log(`2. ${false === !!null}`);
+        console.log(`3. ${false === !!NaN}`);
+        console.log(`4. ${false === !![]}`); // 주의
+        console.log(`5. ${false === !!{}}`); // 주의
+        console.log(`6. ${false === !!''}`); // 주의
+        console.log(`7. ${false === !!0}`);
+        console.log(`8. ${false === !!'hello world'}`);
+        console.log(`9. ${false === !!-100}`);
+
+        console.log('-----------------');
+        console.log('드보르만 법칙');
+        let x = true;
+        let y = true;
+        console.log(!(x || y) === (!x && !y));
+        console.log(!(x && y) === (!x || !y));
+
+        console.log('-----------------');
+        console.log(+false);
+        console.log(+true);
+        console.log(false * 1);
+        console.log(true * 1);
+    </script>
+</body>
+</html>
