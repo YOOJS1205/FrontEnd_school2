@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 내장함수</title>
+</head>
+<body>
+    <script>
+        // pop push splice slice
+        var arr = [1,2,3,4,5];
+        // 마지막 요소 제거하고 반환
+        // 기존 배열을 바꾼다.
+        console.log(arr.pop());
+        console.log(arr);
+        // 해당 요소를 마지막에 추가하고 배열의 길이를 반환!!
+        console.log(arr.push(6));
+        console.log(arr);
+
+        let vegetables = [];
+        vegetables.push('마늘', '양파', '배추');
+        console.log(vegetables);
+        vegetables.pop('배추');
+
+        // splice() => 기존 요소 삭제, 교체, 추가 가능
+        // 삭제된 요소들 반환
+        // 파라미터 => 시작index, 삭제할 요소 수, 추가할 item
+        // 원본 배열이 손상
+        var arr2 = [1,2,3];
+        arr.splice(1, 1); // 삭제
+        arr2.splice(1, 0, 'hi'); // deletecounts 0이면 추가가능
+        arr2.splice(2, 1, 'bye'); // 변경 가능
+        console.log(arr2);
+
+        var fish = ['정어리', '고등어', '돌고래', '참치', '고래상어', '코끼리'];
+        // 1번 문제
+        // splice(n) => n번째 부터 끝까지 다 삭제하고 반환
+        fish.splice(5, 1); // => fish.splice(-1);
+        console.log(fish);
+        // 2번 문제
+        fish.splice(4, 0, '다금바리');
+        console.log(fish);
+        // 3번 문제
+        fish.splice(2, 1, '옥돔', '갈치');
+        console.log(fish);
+
+        // slice() => 배열에서 특정 부분을 잘라내어 새로운 배열로 만든다.
+        // 원본 배열 유지
+        // splice(n) => n ~   splice(n, m) => n ~ m-1
+        var avengers = ['spiderman', 'ironman', 'hulk', 'thor'];
+        var bestTeam = avengers.slice(1);
+        console.log(bestTeam);
+
+        var fish2 = ['정어리', '고등어', '돌고래', '참치', '고래상어', '코끼리'];
+        var realFish = fish2.slice(2, 3);
+        realFish = fish2.slice(5);
+        console.log(realFish)
+    </script>
+</body>
+</html>
