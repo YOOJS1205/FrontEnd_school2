@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열고차함수</title>
+</head>
+<body>
+    <script>
+        let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        // 1. find() => 조건에 맞는 '하나의' 요소만을 찾을 때 사용 (id, pw) => 부하가 안 생김
+        // 효율이 좋다. 하나 찾으면 탐색 끝냄.
+        // 해당 조건을 만족하는 첫번째 요소 반환
+        // 만족하는 요소 없으면 undefined 반환
+        console.log(arr.find(i => i > 5));
+
+        // 2. filter() => 검색할 때 많이 사용
+        // 해당 조건을 만족하는 요소들로 이루어진 배열 반환
+        console.log(arr.filter(i => i > 3));
+
+        const arr2 = [{
+            'name' : '안녕1',
+            'contents' : 'contents1',
+            'dataNum' : 1
+        }, {
+            'name' : '안녕2',
+            'contents' : 'contents2',
+            'dataNum' : 2
+        }, {
+            'name' : 'title3',
+            'contents' : 'contents3',
+            'dataNum' : 3
+        }, {
+            'name' : 'title4',
+            'contents' : 'contents4',
+            'dataNum' : 4
+        }, {
+            'name' : 'title5',
+            'contents' : 'contents5',
+            'dataNum' : 5
+        }];
+
+        console.log(arr2.filter(i => i.name.includes('title')));
+
+        const arr3 = [{
+            'name' : '안녕1',
+            'contents' : '프론트엔드1',
+            'dataNum' : 1
+        }, {
+            'name' : '프론트엔드2',
+            'contents' : 'content2',
+            'dataNum' : 2
+        }, {
+            'name' : 'title3',
+            'contents' : '프론트엔드3',
+            'dataNum' : 3
+        }, {
+            'name' : '안녕4',
+            'contents' : 'contents4',
+            'dataNum' : 4
+        }, {
+            'name' : 'title5',
+            'contents' : 'contents5',
+            'dataNum' : 5
+        }];
+
+        // 3. findIndex() => 해당 조건을 만족하는 첫 번째 요소의 index 반환
+
+        // 4. map() => 각 요소에 함수를 호출할 때
+        const arr4 = [{
+            'name' : 'title1',
+            'contents' : 'contents1',
+            'dataNum' : 1,
+            '지역과날짜' : [
+                '한국',
+                [22, 5, 4]
+            ]
+        }, {
+            'name' : 'title2',
+            'contents' : 'contents2',
+            'dataNum' : 2,
+            '지역과날짜' : [
+                '한국',
+                [22, 5, 4]
+            ]
+        }, {
+            'name' : 'title3',
+            'contents' : 'contents3',
+            'dataNum' : 3,
+            '지역과날짜' : [
+                '한국',
+                [23, 5, 4]
+            ]
+        }, {
+            'name' : 'title4',
+            'contents' : 'contents4',
+            'dataNum' : 4,
+            '지역과날짜' : [
+                '한국',
+                [23, 5, 4]
+            ]
+        }, {
+            'name' : 'title5',
+            'contents' : 'contents5',
+            'dataNum' : 5,
+            '지역과날짜' : [
+                '한국',
+                [22, 5, 4]
+            ]
+        }];
+
+        // 해당 요소들만 뽑아서 배열로 반환
+        console.log(arr4.map(i => i.지역과날짜[1][0]));
+        console.log(arr4.filter(i => i.지역과날짜[1][0] == 22));
+
+        const arr5 = [{
+            'name' : 'title1',
+            'contents' : 'contents1',
+            'dataNum' : 1,
+            'data' : [1, 2, 3]
+        }, {
+            'name' : 'title2',
+            'contents' : 'contents2',
+            'dataNum' : 2,
+            'data' : [1, 2, 3]
+        }, {
+            'name' : 'title3',
+            'contents' : 'contents3',
+            'dataNum' : 3,
+            'data' : [1, 2, 100]
+        }, {
+            'name' : 'title4',
+            'contents' : 'contents4',
+            'dataNum' : 4,
+            'data' : [1, 2, 3]
+        }, {
+            'name' : 'title5',
+            'contents' : 'contents5',
+            'dataNum' : 5,
+            'data' : [1, 2, 100]
+        }];
+
+        // 두 개 반환
+        console.log(arr5.map((value, index) => [index, value.contents]));
+
+        // 안 쓰는 변수는 _로 놔두는게 관례이다.
+        console.log(Array(100).fill(0).map((_, index) => index+1));
+
+        // 5. forEach() => 배열을 순회만한다.
+        // map() => 배열을 반환한다.
+
+        // 강사님 만약에 json 형식으로 상품 데이터가 있고, 이 데이터들을 dom을 활용하여 화면에 보여주고 싶을 때
+        // forEach, map 중에 어떤 것을 사용하나요?
+
+        const info = [
+            {
+                "_id": "6271fd40fe5c58d4cbd3a72f",
+                "index": 0,
+                "guid": "60f843d2-1b6b-4536-b421-e5df1c4ab735",
+                "isActive": true,
+                "balance": "$2,534.11",
+                "picture": "http://placehold.it/32x32",
+                "age": 27,
+                "eyeColor": "brown",
+                "name": "Miranda Nguyen",
+                "gender": "male",
+                "company": "ZENTIA",
+                "email": "mirandanguyen@zentia.com",
+                "phone": "+1 (833) 466-3207",
+                "address": "198 Dank Court, Hartsville/Hartley, Indiana, 8416",
+                "about": "Consectetur proident anim do commodo ipsum. Elit consectetur irure dolore voluptate. Enim aute voluptate et qui do. Eu pariatur laboris labore esse enim reprehenderit mollit ullamco fugiat. Laborum sunt veniam consectetur laboris cupidatat. Lorem tempor occaecat labore ut et eiusmod amet.\r\n",
+                "registered": "2021-06-16T11:50:54 -09:00"
+            },
+            {
+                "_id": "6271fd40e30856d15651c60c",
+                "index": 1,
+                "guid": "ee647592-0647-4ad5-96b1-eb6c06a32dbd",
+                "isActive": true,
+                "balance": "$2,636.22",
+                "picture": "http://placehold.it/32x32",
+                "age": 35,
+                "eyeColor": "blue",
+                "name": "Florence Flynn",
+                "gender": "female",
+                "company": "ELENTRIX",
+                "email": "florenceflynn@elentrix.com",
+                "phone": "+1 (901) 525-3731",
+                "address": "246 Billings Place, Brandermill, Guam, 5037",
+                "about": "Sint non dolore cupidatat voluptate laboris adipisicing eu quis. Laboris nostrud qui dolor cillum dolor nulla sint culpa est reprehenderit sint ipsum nisi excepteur. Qui cupidatat sint do aliquip ut. Officia est aliquip fugiat ex enim do sunt consequat.\r\n",
+                "registered": "2014-12-10T08:44:47 -09:00"
+            },
+            {
+                "_id": "6271fd404394e16d79143873",
+                "index": 2,
+                "guid": "3d3890ff-8241-4a2b-a361-789e0298817a",
+                "isActive": false,
+                "balance": "$1,047.32",
+                "picture": "http://placehold.it/32x32",
+                "age": 25,
+                "eyeColor": "green",
+                "name": "Debbie Pratt",
+                "gender": "female",
+                "company": "OPTIQUE",
+                "email": "debbiepratt@optique.com",
+                "phone": "+1 (831) 537-3188",
+                "address": "737 Quentin Street, Calpine, Louisiana, 9102",
+                "about": "Officia nisi labore mollit cupidatat exercitation commodo duis adipisicing officia amet laborum. Nulla qui commodo aliqua reprehenderit dolore cupidatat esse ea pariatur sint ad dolore. Exercitation duis veniam velit occaecat est irure quis labore occaecat.\r\n",
+                "registered": "2016-09-19T10:00:38 -09:00"
+            }
+        ]
+
+        // 차이 생각해보기
+        console.log(Array.from(info, x => x.name));
+        console.log(info.map(item => item.name));
+
+        // 6. some => 특정 조건을 만족하는 요소가 1개 이상이 있는가에 대하여 boolean 반환
+        // 7. every => 특정 조건을 만족하는 요소가 전부인지에 대하여 boolean 반환
+
+        let num = 30;
+        for (let i = 1; i <= num; i++) {
+            if (i % 3 === 0 || i % 5 === 0) {
+                console.log(i);
+            }
+        }
+
+        let s = 0
+        Array(100).fill(0).map((_, index)=>index).filter(i => i % 3 ==0 || i % 5 == 0).forEach(x => s += x);
+    </script>
+</body>
+</html>
