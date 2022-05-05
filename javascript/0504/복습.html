@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0504 복습</title>
+</head>
+<body>
+    <div id="one"></div>
+    <script>
+        // 1. 출력할 수 있는 방법 4가지
+        document.getElementById('one').innerHTML = 'hello world';
+        console.log('hello world');
+        window.alert('hello world');
+        document.write('hello!');
+
+        // 2. 내부 JS, 외부 JS, inline JS
+
+        // 3. 주석
+            // 한 줄 주석
+            /*
+            여러 줄
+            주석
+            */
+        
+        // 4. 변수
+        const x = 3; // 재할당 불가능
+        let y = 7;
+        
+        // 5. 연산
+        // 5.1 산술연산
+        console.log(x + y);
+        console.log(x - y);
+        console.log(x * y);
+        console.log(x / y);
+        console.log(x ** y);
+        console.log(x % y);
+
+        // 5.2 비교연산
+        console.log(x > y);
+        console.log(x >= y);
+        console.log(x < y);
+        console.log(x <= y);
+        console.log(x == y);
+        console.log(x === y);
+        console.log(x != y);
+        console.log(x !== y);
+
+        // 5.3 논리연산
+        x = true;
+        y = false;
+        console.log(x && y);
+        console.log(x || y);
+        console.log(!y);
+        console.log(!!x);
+
+        // 6. 숫자형
+        x = 10;
+        x = 10.1;
+        y = '10';
+        console.log(typeof x);
+        console.log(y + y); // 1010
+        // 6.1 형변환: 기존 자료형에서 필요한 자료형으로 바꾸는 것
+        console.log(Number(y) + Number(y)); // 20
+        console.log(parseInt(y) + parseInt(y)); // 20 얘를 더 많이 씀
+        console.log(10 / 0); // Infinity
+        console.log(Math.random()); // 0 ~ 1 사이 랜덤한 수
+        console.log(Math.max(1, 2, 3)); // 3
+
+        // 7. 문자열
+        let txt = 'ABCDEFGHIJKLMNABC';
+        console.log(typeof txt);
+        console.log(String(x) + String(x)); // 1010 의미론적으로 안 맞음
+        console.log(x.toString() + x.toString()); // 1010 얘를 더 많이 씀
+        console.log(txt[1]); // 인덱싱 사용 가능
+        // 자주 사용하는 메소드
+        console.log(txt.length);
+        console.log(txt.slice(0, 3)); // ABC
+        console.log(txt.replace('ABC', 'junsang')); // junsangDEFGHIJKLMNABC
+        console.log(txt.toLowerCase());
+        console.log(txt.includes('BC'));
+
+        // 8. Boolean
+        x = true;
+        y = false;
+        let z = 100;
+        console.log(typeof x);
+        console.log(Boolean(z)); // 형변환 (쓸 일 없음)
+        console.log(!!z) // 형변환
+
+        // 9. 객체
+        x = {
+            one: 1,
+            two: 2,
+            three: 3,
+        }
+        // key와 value의 쌍으로 이루어진다.
+        console.log(typeof x);
+        console.log(x.one);
+        console.log(x['one']);
+
+        console.log(Object.keys(x));
+        console.log(Object.values(x));
+        console.log(Object.entries(x));
+
+        // 10. 배열 (Array라고 표현하지만 typeof는 object!!)
+        let cafe = ['coffee', 'cake', 'tea', 'cookie'];
+        // 원본 배열 수정 => push, pop
+        // 원본 배열 유지 => join, filter
+        cafe.push('toast');
+        console.log(cafe); // ['coffee', 'cake', 'tea', 'cookie', 'toast']
+        let last = cafe.pop();
+        console.log(last); // toast
+        console.log(cafe); // ['coffee', 'cake', 'tea', 'cookie']
+        console.log(cafe.join('')); // 배열을 문자열로
+        let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        arr.filter(i => i > 3);
+        arr.map(x => x ** 2);
+        arr.forEach(x => console.log(x + 1));
+    </script>
+</body>
+</html>
