@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문 실습</title>
+</head>
+<body>
+    <script>
+        let data = [
+            {회원번호:0, 아이디:'a', 성별:'남', 나이:21},
+            {회원번호:1, 아이디:'b', 성별:'남', 나이:17},
+            {회원번호:2, 아이디:'c', 성별:'여', 나이:6},
+            {회원번호:3, 아이디:'d', 성별:'여', 나이:55}
+        ]
+        // 나이가 20살 이상인 여성의 수는?
+        // 1. forEach
+        console.log(data.filter(item => item.나이 > 20 && item.성별 === '여').length);
+        // 2. for 반복문
+        result = [];
+        for (let i = 0; i < data.length; i++) {
+            if (data[i]['나이'] >= 20 && data[i]['성별'] === '여') {
+                result.push(data[i]['회원번호']);
+            }
+        }
+
+        // 회원들의 나이 총합 구하기
+        let ageSum = 0;
+        // 1. for 반복문
+        for (let i = 0; i < data.length; i++) {
+            ageSum += data[i]['나이'];
+        }
+        // 2. 메소드
+        data.map(i => i['나이']).reduce((a, b) => a + b, 0);
+
+        // 가장 많은 나이 뽑아내기
+        let maxAge = 0;
+        for (let i = 0; i < data.length; i++) {
+            if (maxAge < data[i]['나이']) {
+                maxAge = data[i]['나이'];
+            }
+        }
+
+        // 배열에서 최솟값 찾기 (전개구문 이용 => 스프레드 문법)
+        var numAry = [1, 2, 3, 4, 5];
+        Math.min(...numAry);
+
+        // l의 갯수 찾기
+        var str = 'hello world';
+        let sum = 0;
+        // 1. for 문
+        for (let i = 0; i < str.length; i++) {
+            if (str[i] === 'l') {
+                sum++;
+            }
+        }
+        // 2. 메소드
+        str.split('').filter(i => i === 'l');
+
+        // 자릿수 더하기
+        var num2 = 12390812476;
+        var str2 = '12390812476';
+        let sum2 = 0;
+        let sum22 = 0;
+        while (num2) {
+            sum2 += num2 % 10;
+            num2 = Math.floor(num2 / 10);
+        }
+        for (let i = 0; i < str2.length; i++) {
+            sum22 += parseInt(str2[i], 10);
+            // sum22 += +str2[i];
+        }
+        console.log(sum2);
+        console.log(sum22);
+
+        // 나이 평균
+        let ageAry = ['33', '29', '11', '55', '47'];
+        let ageSum2 = 0;
+        for (let i = 0; i < ageAry.length; i++) {
+            ageSum2 += +ageAry[i];
+        }
+        console.log(ageSum2 / ageAry.length);
+    </script>
+</body>
+</html>

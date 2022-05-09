@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>break, continue</title>
+</head>
+<body>
+    <script>
+        // break 탈출, continue 다음 loop
+        let i = 0
+        while(i<100){
+            i++;
+            console.log(i, 'start')
+            if (i > 10) {
+                continue
+            }
+            console.log(i, 'end')  
+        }
+        console.log('end')
+
+        // 구구단 출력
+        let a = 2;
+        let j = 1;
+        while (a < 10) {
+            while (b < 10) {
+                console.log(`${a} x ${b} = ${a * b}`);
+                b++;
+            }
+            a++;
+        }
+    </script>
+</body>
+</html>

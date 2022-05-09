@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문 실습2</title>
+</head>
+<body>
+    <script>
+        let result = 0;
+        for (let i = 1; i < 10; i++) {
+            console.log(`2 x ${i} = ${2 * i}`)
+        }
+        for (let i = 3; i < 20; i+=3) {
+            console.log(i); //  3 6 9 12 15 18
+        }
+        for (let i = 2; i <= 100; i+=2) {
+            result += i;
+        }
+        // 감점 사유
+        // 순회하는 횟수도 많고, 나머지 연산자도 들어간다.
+        for (let i = 0; i <= 100; i++) {
+            if (i % 2 === 0) {
+                result += i;
+            }
+        }
+        console.log(result);
+
+        // 문자열 거꾸로 출력하기
+        let txt = 'hello world';
+        let strResult = '';
+        for (let i = 0; i < txt.length; i++) {
+            strResult = txt[i] + strResult;
+        }
+        console.log(strResult);
+
+        // 두 점 사이의 거리가 가장 짧은 쌍 출력
+        let S = [1, 3, 4, 8, 13, 17, 20];
+        let 비교 = 1000000;
+        let index = 0;
+        for (let i = 0; i < S.length; i++) {
+            if (result > S[i + 1] - S[i]) {
+                result = S[i + 1] - S[i];
+                index = i;
+            }
+        }
+        console.log(S[index], S[index + 1]);
+
+        for (let i = 1; i < 10; i++) {
+            for (let j = 1; j < 10; j++) {
+                console.log(`${i} x ${j} =  ${i * j}`);
+            }
+        }
+
+        let i = 2;
+        let result2 = 0;
+        while (i < 10) {
+            console.log(`2 x ${i} = ${2 * i}`);
+            i++;
+        }
+        while (i < 101) {
+            result2 += i;
+            i += 2;
+        }
+        console.log(result2);
+
+        // do...while 문은 반드시 한번은 실행한다. 1번 실행 후 while문 실행 시작
+    </script>
+</body>
+</html>
