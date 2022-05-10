@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0510 과제</title>
+</head>
+<body>
+    <script>
+        let data = [{
+                반 : 1, 
+                번 : 1, 
+                이름 : "호준", 
+                중간고사점수 : 55
+            }, {
+                반 : 1, 
+                번 : 2, 
+                이름 : "길동", 
+                중간고사점수 : 60
+            }, {
+                반 : 1, 
+                번 : 3, 
+                이름 : "영희", 
+                중간고사점수 : 30
+            }, {
+                반 : 1, 
+                번 : 4, 
+                이름 : "철수", 
+                중간고사점수 : 20
+            }, {
+                반 : 1, 
+                번 : 5, 
+                이름 : "규리", 
+                중간고사점수 : 100
+            }]
+            
+            // 0510 (1) 1번문제
+            function printMidScore(item) {
+                for (let key in item) {
+                    if (key === '중간고사점수') {
+                        return item[key];
+                    }
+                }
+            }
+            
+            // 0510 (1) 2번문제 (고민중)
+            function printNameNScore(item) {
+                for (let key in item) {
+                    if (key === '중간고사점수' || key === '이름') {
+                        
+                    }
+                }
+            }
+            // console.log(data.map(x => x.중간고사점수))
+            console.log(data.map(x => [x.이름,x.중간고사점수]));
+            const midScore = data.map(printMidScore);
+            console.log(midScore);
+
+            // 0510 1번문제
+            const numArr = [10, 20, 30, 40];
+            function getAverage(arr) {
+                let sum = 0;
+                for (let i = 0; i < arr.length; i++) {
+                    sum += arr[i];
+                }
+                return sum / arr.length;
+            }
+            console.log(getAverage(numArr));
+
+            // 0510 2번문제 (고민중)
+            function drawComma(n) {
+                for (let i = String(n).length; i > 0; i -= 3) {
+                    
+                }
+            }
+    </script>
+</body>
+</html>
