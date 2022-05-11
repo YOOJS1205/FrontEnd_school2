@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클로저</title>
+</head>
+<body>
+    <script>
+        // 클로저
+        // 1. 폐쇄된 공간 안의 데이터에 접근하기 위한 테크닉
+        // 장점 => 변수 은닉, 메모리 효율, 코드 효율 극대화
+        var x = 10;
+        function test() {
+            var x = 100;
+            console.log(x);
+            function test2() {
+                console.log(x); // 100
+            }
+            test2();
+        }
+        test(); // 100
+
+        function 제곱(x) {
+		    function 승수(y) {
+			    return y ** x
+		    }
+            return 승수
+        }
+
+        var 제곱2 = 제곱(2);
+        // function 승수(y) {
+        //     return y ** 2;
+        // }
+        // 승수 = 제곱(2)
+        var 제곱3 = 제곱(3);
+        // function 승수(y) {
+        //     return y ** 3;
+        // }
+        // 승수 = 제곱(3)
+
+        제곱2(10);
+        // function 승수(10) {
+        //     return 10 ** 2;
+        // }
+        제곱3(10);
+        // function 승수(10) {
+        //     return 10 ** 3;
+        // }
+
+        // ex)3
+        let x = 100;
+        function a() {
+            let x = 1;
+            b();
+        }
+        function b() {
+            console.log(x);
+        }
+        a(); // 100 함수 내부에서 선언된게 아니다. a 함수 내부에 있다고 해서 a 함수 내부의 변수를 참조하지 않는다.
+        b(); // 100 이건 당연
+
+        // ex)4
+        let xx = 100;
+
+        function a() {
+            let xx = 1;
+            function b() {
+                console.log(xx);
+            }
+        }
+
+        // 헷갈리는 포인트
+        let x = 10;
+        function test4() {
+            x = 100;
+        }
+        test4();
+        console.log(x); // 100
+
+        let x2 = 10;
+        function test5() {
+            let x2 = 100;
+        }
+        test5();
+        console.log(x2); // 10
+        // 함수 내의 변수는 휘발된다.
+
+        function 승수제조기(){
+            let value = 0;
+            function 승수(){
+                return ++value**2
+            }
+            return 승수
+        }
+
+        let 승 = 승수제조기();
+        승(); // 1
+        승(); // 4
+        승(); // 9 => 변수를 사용하지 않고 건드릴 수 있다.
+    </script>
+</body>
+</html>

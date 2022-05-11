@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map, Set</title>
+</head>
+<body>
+    <script>
+        let m = new Map();
+        m.set('하나', 1);
+        m.set('둘', 2);
+        m.get('하나');
+        m.get('둘');
+        console.log(m) // {'하나' => 1, '둘' => 2};
+        m.has('하나'); // true
+        m.delete('하나');
+
+        // 객체 약점 보완 (일반 객체는 순환이 불가능), map은 순환이 가능하다. => 키와 값을 반환한다.
+        m.keys();
+        m.values();
+        m.entries(); // 직접 접근 가능
+
+        let s = new Set('aaaaaaabbbbbbbbbbbbbcccccccccddddddd');
+        console.log(s); // {'a', 'b', 'c', 'd'};
+        console.log(s.size); // 4
+
+        let a = new Set('abc');
+        let b = new Set('cde');
+        // 교집합
+        let cross = [...a].filter(value => b.has(value));
+        // 합집합
+        let union = new Set([...a].concat(...b));
+        // 차집합
+        let diff = new Set([...a].filter(x => !b.has(x)));
+    </script>
+</body>
+</html>
