@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <article class="parent">
+        <ol>
+            <li><button class="btn-first" type="button">버튼1</button></li>
+            <li><button type="button">버튼2</button></li>
+            <li><button type="button">버튼3</button></li>
+        </ol>
+    </article>
+    
+    <script>
+        const parent = document.querySelector('.parent');
+        // e.target => 이벤트가 발생한 요소
+        // e.currentTarget => 이벤트리스너를 호출한 요소
+        // => 이벤트 위임이 가능하다. (부모가 자식에게만 가능)
+        // parent.addEventListener('click', function (event) {
+        //     console.log(event.target);
+        //     console.log(event.currentTarget);
+        // })
+
+        parent.addEventListener('click', function (event) {
+            console.log(event.target);
+            if (event.target.nodeName === "BUTTON") {
+                event.target.innerText = "버튼4";
+            }
+        })
+
+        // 이벤트리스너 안에서의 this는 이벤트리스너를 호출한 요소이다.
+        // 화살표함수는 this가 전역을 가리킨다. 함수의 scope에서 바라보기, DOM구조는 영향을 미치지 않는다.
+    </script>
+</body>
+</html>

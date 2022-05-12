@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+    <link rel="stylesheet" href="../reset.css">
+    <style>
+    </style>
+</head>
+
+<body>
+    <article class="parent">
+        <button class="btn" type="button">버튼</button>
+    </article>
+    <article class="parent2">
+        <button class="btn2">버튼2</button>
+    </article>
+
+    <script>
+        const parent = document.querySelector('.parent');
+        const btnFirst = document.querySelector('.btn');
+        const btnSecond = document.querySelector('.btn2');
+        // 버튼 1 true => 캡쳐링 이벤트 => window-document-parent-btnFirst
+        // 버튼 2 true => 캡쳐링 이벤트 => window-document-btnSecond
+        // 버튼 1 true x => 버블링 이벤트 => btnFirst-parent-document-window
+        // 버튼 2 true x => 버블링 이벤트 => btnSecond-document-window
+        btnFirst.addEventListener('click', (event) => {
+            console.log("버튼1임");
+        }, true)
+
+        btnSecond.addEventListener('click', () => {
+            console.log('버튼2임!');
+        }, true);
+
+        window.addEventListener('click', () => {
+            console.log("윈도우임!");
+        }, true); // true : 캡처링 단계의 이벤트가 발생하도록 합니다.
+
+        document.addEventListener('click', () => {
+            console.log("문서임!");
+        }, true);
+
+        parent.addEventListener('click', () => {
+            console.log("부모임!");
+        }, true);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습</title>
+    <style>
+        .color {
+            background-color: black;
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+        }
+        .buttons {
+            margin-top: 100px;
+            text-align: center;
+        }
+        .buttons button {
+            margin: 0 50px;
+        }
+        .red {
+            background-color: red;
+        }
+        .yellow {
+            background-color: yellow;
+        }
+        .green {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="color"></div>
+    <div class="buttons">
+        <button class="red-button">Red</button>
+        <button class="yellow-button">yellow</button>
+        <button class="green-button">green</button>
+    </div>
+
+    <script>
+        const colorBox = document.querySelector('.color');
+        const buttons = document.querySelector('.buttons');
+
+        // 코드 반복 피하기 1 => 이벤트 위임 사용 => 이게 베스트일듯.
+        buttons.addEventListener('click', e => {
+            console.log(e);
+            if (e.target.className === 'red-button') {
+                colorBox.style.backgroundColor = 'red';
+            } else if (e.target.className === 'yellow-button') {
+                colorBox.style.backgroundColor = 'yellow';
+            } else {
+                colorBox.style.backgroundColor = 'green';
+            }
+        }, true)
+
+        // 코드 반복 피하기 2 => 배열 + forEach 사용
+        // NodeList도 일단 forEach 사용이 가능하긴 하다.
+        // const btnArr = [btnRed, btnYellow, btnGreen];
+
+        // btnArr.forEach((item) => {
+        //     console.log(item);
+        //     item.addEventListener('click', () => {
+        //         canvas.classList.remove('red', 'green', 'yellow');
+        //         if(item.className === 'btn-red') {
+        //             canvas.classList.add('red');
+        //         } else if(item.className === 'btn-yellow') {
+        //             canvas.classList.add('yellow');
+        //         } else {
+        //             canvas.classList.add('green');
+        //         }
+        //     })
+        // })
+
+        // redBtn.addEventListener('click', () => {
+        //     colorBox.classList.toggle('red');
+        //     colorBox.classList.remove('yellow'); => colorBox.classList.toggle('red', 'yellow'); 도 가능
+        //     colorBox.classList.remove('green');
+        // })
+        // yellowBtn.addEventListener('click', () => {
+        //     colorBox.classList.remove('red');
+        //     colorBox.classList.toggle('yellow');
+        //     colorBox.classList.remove('green');
+        // })
+        // greenBtn.addEventListener('click', () => {
+        //     colorBox.classList.remove('red');
+        //     colorBox.classList.remove('yellow');
+        //     colorBox.classList.toggle('green');
+        // })
+    </script>
+</body>
+</html>

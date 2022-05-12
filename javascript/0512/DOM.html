@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <div id="myId">hello</div>
+    <div>hello2</div>
+    <div class="myClass">hello3</div>
+
+    점심 식단
+    <article id="container">
+        <ul>
+            <li>탕수육</li>
+            <li class="item-second">유산슬</li>
+            <li>짜장면</li>
+        </ul>
+    </article>
+    저녁 식단
+    <article>
+        <ul>
+            <li>된장국</li>
+            <li class="item-second">김치찌게</li>
+            <li>해장국</li>
+        </ul>
+    </article>
+
+    <button>Hello!</button>
+    <button>AddClass</button>
+
+    <button class="myBtn">리스트 만들기</button>
+    <ul class="myUl"></ul>
+
+    <div id="parentElement">
+        <span id="childElement">hello guys~</span>
+    </div>
+
+    <script>
+        document.getElementById('myId');
+        document.getElementsByTagName('div'); // HTMLCollection 객체 반환, 유사 배열 객체이다.
+        document.querySelectorAll('.item-second'); // Nodelist 객체 반환, 유사 배열 객체이다.
+
+        // 이벤트
+        // const btn = document.querySelector('button')[0];
+        // const btn2 = document.querySelector('button')[1];
+        // btn.addEventListener('click', () => {
+        //     console.log('hello world');
+        // })
+        // btn2.addEventListener('click', () => {
+        //     btn2.classList.add('blue');
+        // })
+
+        // 요소 제어
+        const myBtn = document.querySelector('.myBtn');
+        const myUl = document.querySelector('.myUl');
+
+        myBtn.addEventListener('click', () => {
+            for (let i = 0; i < 5; i++) {
+                const myLi = document.createElement('li');
+                myUl.appendChild(myLi);
+            }
+        })
+
+        var span = document.createElement("span");
+        var sibling = document.getElementById("childElement");
+        var parentDiv = document.getElementById("parentElement");
+        parentDiv.insertBefore(span, sibling); // span을 sibling 앞에 생성한다. => parentDiv의 첫 번째 자식이 된다.
+    </script>
+</body>
+</html>
