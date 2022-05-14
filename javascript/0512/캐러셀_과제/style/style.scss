@@ -1,0 +1,31 @@
+.carousel {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+    display: flex;
+    .item {
+        width: 300px;
+        height: 300px;
+        border: 1px solid #BDBDBD;
+        background-position: center;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+    // .item:nth-child(1) {
+    //     transform: rotateY(0deg);
+    // }
+    // .item:nth-child(2) {
+    //     transform: rotateY(72deg);
+    // }
+    // .item:nth-child(3) {
+    //     transform: rotateY(144deg);
+    // }
+    // .item:nth-child(4) {
+    //     transform: rotateY(216deg);
+    // }
+    // .item:nth-child(5) {
+    //     transform: rotateY(288deg);
+    // }
+}
