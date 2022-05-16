@@ -1,17 +1,18 @@
 // 캐러셀 이미지 src
 const imgSrc = ['images/cute.png', 'images/gary.png',
                 'images/licat.png', 'images/mouse.png',
-                'images/rabbit.png',];
+                'images/rabbit.png'];
 
-const carousel = document.querySelector('.carousel');
-// const content = document.createElement('div');
+const container = document.querySelector('.container');
+const carousel = document.createElement('div');
+container.appendChild(carousel);
+carousel.classList.add('carousel');
 
+// container.addEventListener('click', e => {
+//     console.log(e.target);
+//     carousel.style.transform = 'rotateY(40deg)'
+// })
 
-// for (let i = 0; i < imgSrc.length; i++) {
-//     const content = document.createElement('div');
-//     carousel.appendChild(content);
-//     content.style.backgroundImage = `url(${imgSrc[i]})`;
-// }
 
 imgSrc.forEach(itemSrc => {
     const content = document.createElement('div');

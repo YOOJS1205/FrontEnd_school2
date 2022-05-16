@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>preventDefault, stopPropagation</title>
+</head>
+<body>
+    <!-- 앵커의 기본 동작을 중지 -->
+    <a href="https://www.naver.com" class="link">네이버 링크입니다만..</a>
+    <script>
+        const link = document.querySelector('.link');
+        link.addEventListener('click', (event) => {
+            console.log('clicked');
+            event.preventDefault();
+        })
+    </script>
+
+    <!-- submit 의 기본 동작을 중지 -->
+    <form action="">
+        <button type="submit" class="submit">제출</button>
+    </form>
+    <script>
+        const submit = document.querySelector('.submit');
+        submit.addEventListener('click', (event) => {
+            console.log('clicked');
+            // 페이지 이동을 막음 (기본 동작 취소)
+            event.preventDefault();
+        })
+
+        document.addEventListener('contextmenu', e => {
+            alert('해당 페이지에서는 오른쪽 클릭을 제한합니다.');
+            e.preventDefault();
+        })
+
+        const arr = [10, 12, 15, 19, 22, 25, 29, 30, 35, 39];
+        let diff = 10000;
+        let firstIdx = 0;
+        let secondIdx = 0;
+
+        for (let i = 1; i < arr.length; i++) {
+            for (let j = 0; j < i; j++) {
+                if (diff > arr[i] - arr[j]) {
+                    diff = arr[i] - arr[j];
+                    firstIdx = i;
+                    secondIdx = j;
+                }
+            }
+        }
+        console.log(diff, arr[firstIdx], arr[secondIdx]);
+    </script>
+</body>
+</html>
