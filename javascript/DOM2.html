@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>픽토그램</title>
+    <style>
+        .list{
+            width: 300px;
+            margin: 10px 0;
+        }
+
+        hr{
+            width: 500px;
+            margin-left: 0;
+        }
+
+        .tab {
+            white-space: pre;
+        }
+
+        .delete{
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>here your pictogram</h1>
+    <p><span>here : </span><span class="output"></span></p>
+    <input type="text">
+    <hr>
+    <form action="">
+        <button type="submit" class="submit">제출</button>
+    </form>
+    <hr>
+    <h1>List of things to buy</h1>
+    <ol class="buylist">
+        <li class="list">cart<span class="tab">&#9;</span><button class="delete" type="button">delete</button></li>
+        <li class="list">paint<span class="tab">&#9;</span><button class="delete" type="button">delete</button></li>
+        <li class="list">bed<span class="tab">&#9;</span><button class="delete" type="button">delete</button></li>
+    </ol>
+    <button class="add" type="button">add</button>
+</body>
+<script>
+    //픽토그램
+    const $output_text = document.querySelector(".output");
+    const $input_text = document.querySelector("input");
+    
+    $input_text.addEventListener("input", function(){
+        let text = $input_text.value;
+        const mixed = [];
+        for(let i =0; i<text.length; i++){
+            const num = parseInt(Math.random()*text.length);
+    
+            //중복 번호 제거
+            if(mixed.indexOf(num) == -1){
+                mixed.push(num);
+            }
+            else{
+                i -=1;
+            }
+        }
+        let pictogram = [];
+        for(let i =0; i<text.length; i++){
+            pictogram.push(text[mixed[i]]);
+        }
+        if($input_text.value === ""){
+            $output_text.textContent = "";
+        }else{
+            $output_text.textContent = pictogram.reduce((a,b)=> a+b);
+        }
+    })
+
+    //클릭 금지
+    const $submit = document.querySelector('.submit');
+    
+    $submit.addEventListener('click', (event) => {
+        event.preventDefault(alert("stop click"));
+    })
+    
+    $submit.addEventListener('contextmenu', (event) => {
+        event.preventDefault(alert("what are you doing?!"));
+    })
+
+    //buy list
+    const $add_btn = document.querySelector(".add");
+    const $buy_list = document.querySelector(".buylist");
+    
+    $add_btn.addEventListener("click", function(e){
+        let add_list = prompt('Enter your buy list', '');
+        $buy_list.insertAdjacentHTML("beforeend", `<li class="list">${add_list}<span class="tab">&#9;</span><button class="delete" type="button">delete</button></li>`);
+    })
+    
+    $buy_list.addEventListener("click", function(e){
+        if(e.target.classList.contains('delete')){
+            let result = confirm("Really?");
+            if(result){
+                e.target.parentNode.remove();
+            }
+        } else if (e.target.nodeName === 'LI') {
+            alert(e.target.firstChild.textContent);
+        }
+    })
+    
+    const $list = document.querySelectorAll(".list");
+</script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        // this: 자신이 속한 객체, 자신이 생성할 인스턴스를 가리키는 자기 참조 변수
+        // => 자신이 속한 객체 또는 자신이 생성할 인스턴스의 프로퍼티나 메서드 참조
+        // => 일반 함수 내부의 this
+        // https://velog.io/@recordboy/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-This
+        function Person(name) {
+            this.name = name;
+            this.sayHi = function() {
+                console.log(`${this.name}아 안녕?`);
+                console.log(this);
+            }
+            console.log(this);
+            console.log(this.name);
+        }
+        // 1. 생성자 함수가 아닌 일반 함수 => window
+        Person('jun'); // window
+        // 2. 생성자 함수 => 생성자 함수가 생성할 인스턴스
+        const boy1 = new Person('jun'); // Person {name: 'jun', sayHi: ƒ}
+        const boy2 = new Person('hyeok'); // Person {name: 'hyeok', sayHi: ƒ}
+        boy1.sayHi();
+
+        // 2.1 프로토타입 역시 마찬가지
+        function Person2(name) {
+            this.name = name;
+        }
+        Person2.prototype.sayHello = function() {
+            console.log(`안녕 내 이름은 ${this.name}이야`);
+            console.log(this);
+        }
+        const jun = new Person2('jun');
+        jun.sayHello();
+        // 3. 메소드의 this
+        var obj = {
+            name: 'jun',
+            sayName: function() {
+                console.log(this); // 메서드를 호출한 객체
+                console.log(this.name);
+            }
+        }
+
+        // 4. Function.prototype.apply / call / bind => 메서드의 첫 번째 인수로 전달한 객체
+        obj.sayName();
+
+        function Robot(name) {
+            this.name = name;
+            this.sayHi = function() {
+                console.log(`${this.name}`);
+                return this.name
+            }
+        }
+        // Robot.prototype.sayHi = function() {
+        //     console.log(`${this.name}`);
+        // }
+
+        const a = new Robot('a');
+        const b = new Robot('b');
+        // a.sayHi();
+        // b.sayHi();
+        console.log(a.sayHi() === b.sayHi()); // a b true
+    </script>
+</body>
+</html>

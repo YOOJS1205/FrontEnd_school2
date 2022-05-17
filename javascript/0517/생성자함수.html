@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        // 생성자 함수 생성
+        function NewFactory(name) {
+            this.name = name;
+            this.sayYourName = function() {
+                console.log(`제 이름은 ${this.name} 입니다.`);
+            };
+            // 함수 내의 this는 전역을 가리킨다.
+            console.log(this);
+        }
+        NewFactory('준상');
+
+        // 생성자 함수에서의 this는 인스턴스를 가리킨다. (robot1)
+        const robot1 = new NewFactory('준상');
+
+        // 생성자 함수 실습
+        // 음식 이름의 배열을 전달하면 배열안에서 랜덤하게 메뉴를 뽑아내는 로봇객체의 생성자를 만들어보세요.
+        function MenuRobot(menu) {
+            this.menu = menu;
+            // this.pickFood = function() {
+            //     console.log(`당신이 선택한 음식은 ${menu[Math.floor(Math.random() * this.menu.length)]}`);
+            // }
+        }
+
+        MenuRobot.prototype.pickFood = function () {
+            console.log(this); // MenuRobot
+            console.log(`당신이 선택한 음식은 ${this.menu[Math.floor(Math.random() * this.menu.length)]}`);
+        }
+
+        const MenuRobot1 = new MenuRobot(['pizza', 'chicken', 'hamburger']);
+        const MenuRobot2 = new MenuRobot(['안녕', '바보', '멍청이']);
+        console.log(MenuRobot1.pickFood === MenuRobot2.pickFood); // true
+        console.log(MenuRobot1.pickFood() === MenuRobot2.pickFood());
+        MenuRobot1.pickFood();
+        MenuRobot2.pickFood();
+
+        const me = {
+            name : '한재현',
+            address : '제주도 제주시 인다 1길',
+            phoneNum : '010-8001-6536',
+            canWalk : function(){
+                console.log('재현이가 걷는다.');
+            },
+            teaching : function(student){
+                student.levelUp();
+            }
+        }
+
+        function Me(name, address, phoneNum) {
+            this.name = name;
+            this.address = address;
+            this.phoneNum = phoneNum;
+        }
+        function Student(level) {
+            this.level = level;
+        }
+        Me.prototype.canWalk = function() {
+            console.log(`${this.name}이가 걷는다.`);
+        }
+        Me.prototype.teaching = function() {
+            student.levelUp();
+        }
+        Student.prototype.levelUp = function() {
+            this.level++;
+        }
+
+        const meme = new Me('준상', '송파구', '1234');
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <!-- <form action="">
+        <button type="submit" class="submit">제출</button>
+    </form> -->
+
+    <h1>나의 todo list</h1>
+    <p>1. 오늘 저녁에는 부대찌게를 끓여 먹겠다.<button type="button">삭제</button></p>
+    <p>2. 후식으로 슈팅스타를 먹겠다.<button type="button">삭제</button></p>
+    <p>3. 자기 전에 반드시 내일 아침 메뉴를 생각해두겠다.<button type="button">삭제</button></p>
+    
+    <script>
+        // const submit = document.querySelector('.submit');
+        // submit.addEventListener('click', (event) => {
+        //     console.log('clicked');
+        //     event.preventDefault();
+        // });
+        
+        // document.body.addEventListener('click', () => {
+        //     console.log('event still alive!');
+        //     event.stopPropagation();
+        // }, true);
+        const texts = document.querySelectorAll('p');
+        const buttons = document.querySelectorAll('button');
+
+        // document.addEventListener('click', e => {
+        //     if (e.target.nodeName === 'BUTTON') {
+        //         window.confirm('해당 텍스트를 삭제하시겠습니까?');
+        //         if (window.confirm('해당 텍스트를 삭제하시겠습니까?') === true) {
+        //             document.removeChild(e.target.parentNode);
+        //         }
+        //     } else {
+        //         // slice로 삭제하는 방법도 있음.
+        //         alert(e.target.firstChild.textContent);
+        //     }
+        // })
+
+        // prototype => 메서드를 저장하는 공간
+        // call 메서드의 첫 번째 매개변수로 forEach문을 돌릴 수 있다.
+        Array.prototype.forEach.call(texts, item => {
+            item.addEventListener('click', e => {
+                alert(e.target.firstChild.textContent);
+            })
+        })
+
+        for (const item of buttons) {
+            item.addEventListener('click', e => {
+                let result = confirm('삭제하시겠습니까?');
+                // 왜 삭제가 또 뜨는가?
+                // 이벤트 버블링 때문에 발생한다....!
+                e.stopPropagation();
+                if (result) {
+                    item.parentElement.remove();
+                }
+            })
+        }
+    </script>
+</body>
+</html>

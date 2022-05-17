@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <form action="">
+        <button type="submit" class="submit">제출</button>
+    </form>
+
+    <script>
+        const submit = document.querySelector('.submit');
+        submit.addEventListener('click', (event) => {
+            console.log('clicked');
+            // preventDefault 가 stopPropagation에 영향을 미칠 것인가?
+            // nono => preventDefault의 역할은 클릭 이벤트 외에 별도의 브라우저 행동을 막기 위해 사용되므로 이벤트에는 영향이 없다.
+            event.preventDefault();
+        });
+       
+        document.body.addEventListener('click', () => {
+            console.log('event still alive!');
+            event.stopPropagation();
+        });
+        // window -> document -> submit
+        // 이벤트가 발생한 요소: submit
+        // 캡쳐링 이벤트 : document(propagation) => submit => x
+        // 버블링 이벤트 : submit(propagation) => document => x
+        // 걸려있는 곳 다음 이벤트
+
+        window => document => submit
+    </script>
+</body>
+</html>

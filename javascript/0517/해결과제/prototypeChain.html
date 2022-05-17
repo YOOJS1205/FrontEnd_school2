@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        function Person(name) {
+            this.name = name;
+        }
+        Person.prototype.sayHello = function() {
+            console.log(`안녕 내 이름은 ${this.name}이야`);
+        }
+        const jun = new Person('jun');
+        jun.sayHello();
+        console.log(jun.hasOwnProperty('name')); // true
+
+        // jun 인스턴스의 프로토타입은 Person.prototype
+        // Person.prototype의 프로토타입은 Object.prototype.hasOwnProperty => 프로토타입의 종점
+    </script>
+</body>
+</html>
