@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class</title>
+</head>
+<body>
+    <script>
+        // 생성자 함수로 객체 생성
+        function Robot(name) {
+            // 프로퍼티 설정
+            this.name = name;
+        }
+        Robot.prototype.sayYourName = function() {
+            // 메소드 설정
+            console.log(`${this.name} 입니다.`);
+        }
+        const bot1 = new Robot('jun');
+
+        // 클래스
+        class RobotClass {
+            // class 안에서는 function 키워드를 사용하지 않는다.
+            // 생성자 함수
+            constructor(name) {
+                // this는 클래스가 생성할 인스턴스를 가리킨다.
+                this.name = name;
+            }
+
+            // 클래스 내부의 메소드는 프로토타입 메소드이다.
+            sayYourName() {
+                console.log(`${this.name} 입니다.`);
+            }
+        }
+
+        // 인스턴스 생성
+        const botClass1 = new RobotClass('jun');
+
+        class MenuRobot {
+            constructor(menu) {
+                this.menu = menu;
+            }
+
+            pickFood() {
+                console.log(`당신이 선택한 음식은 ${this.menu[Math.floor(Math.random() * this.menu.length)]}`);
+            }
+        }
+
+        // 클래스 상속 (부모 클래스 상속받아 자식 클래스에서 확장)
+        class BabyRobot extends RobotClass {
+            constructor(name) {
+                // 부모 클래스의 생성자를 받아옴
+                // 맨 앞에 위치해야한다.
+                super(name);
+                // 자식 클래스만의 프로퍼티
+                this.ownName = 'Mike';
+            }
+            // 부모 클래스의 메소드를 사용할 수 있음. this로 접근 가능 (this는 자식 클래스를 가리킨다. 자식 클래스에서도 자유롭게 사용 가능)
+            // sayBabyName 메소드는 자식 클래스만의 메소드이다.
+            sayBabyName() {
+                this.sayYourName();
+                console.log('상속 완료!')
+            }
+        }
+    </script>
+</body>
+</html>

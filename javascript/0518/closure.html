@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클로저</title>
+</head>
+<body>
+    <script>
+        // 외부함수가 메모리에서 해제된 이후에도 내부함수가 살아있다면...?
+        var outer = function() {
+            // a 변수는 외부에서 접근할 수 없는 비공개 프로퍼티가 된다.
+            var a = 1;
+            var inner = function() {
+                var b = 6;
+                var c = 7;
+                a = a + b + c;
+
+                console.log(a);
+            }
+            return inner;
+        }
+
+        // 외부 함수 실행 => 외부 함수 생명 주기 다함
+        // newInner에는 inner 함수가 저장되어있다.
+
+        /* 클로저 조건1. 중첩함수가 외부 함수의 식별자를 참조
+           클로저 조건2. 중첩함수의 생명 주기가 외부함수보다 길다. */
+
+        // 클로저: 폐쇄된 공간에 접근하기 위한 테크닉
+        var newInner = outer();
+        newInner(); //  1 + 6 + 7 = 14
+    </script>
+</body>
+</html>

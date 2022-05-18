@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        // 모듈 패턴
+        function Person() {
+            // 외부에서 접근 불가능
+            let age = 15;
+            return {
+                getAge: function() {
+                    return age;
+                },
+                setAge: function(data) {
+                    age = data;
+                }
+            }
+        }
+        const person = Person(); // return의 객체가 person안에 담김
+        console.log(person.getAge()); // 15
+        console.log(person.age); // undefined 접근 불가능 => Person 함수가 호출되어서 죽었기 때문
+        person.setAge(40);
+        console.log(person.getAge()); // 40
+
+        // 사용자 정의 타입 패턴
+        function PersonType() {
+            this.age = 35;
+        }
+        PersonType.prototype.getAge = function() {
+            return this.age;
+        }
+
+        const person2 = new PersonType();
+        console.log(person2.getAge());
+        console.log(PersonType.age); // 접근 불가능!!!!
+        console.log(person2.age); //  접근 가능, 노출이 된다. => 바로 값을 변경가능해서 매우 위험하다. => 클로저 사용
+
+        // 데이터 은닉이 가능한 객체 만들어보기
+        // 모듈 패턴 + 사용자 정의 타입 혼합 패턴, 비공개 변수를 포함한 타입 생성할 때 사용
+        function PersonType2() {
+            let age = 25;
+            
+            // 클로저 생성
+            function innerPersonType() {}
+
+            innerPersonType.prototype.getAge = function() {
+                return age;
+            }
+
+            return innerPersonType; // 함수를 리턴한다.
+        }
+        
+        // 클로저 사용법: 외부 함수 return 문에 함수 + 외부 함수 호출
+        const Person3 = PersonType2();
+        const person3 = new Person3();
+        console.log(person3.getAge());
+        console.log(person3.age) // undefined, 접근 불가능
+
+        // 즉시 실행 함수 + 클로저, 바로 new 연산자 사용이 가능하다.
+        const PersonType3 = (
+            function() {
+                let age = 15;
+
+                // 클로저
+                function innerPersonType() {}
+                innerPersonType.prototype.getAge = function() {
+                    return age;
+                }
+                return innerPersonType
+            }
+        )();
+        
+        // 즉시 실행 함수이기 때문에 const Person3 = PersonType2(); 이런 절차가 필요없다.
+        const personWithSecret = new PersonType3();
+        console.log(personWithSecret.getAge());
+    </script>
+</body>
+</html>

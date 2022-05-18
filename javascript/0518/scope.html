@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        // 스코프: 변수가 살아있는 범위
+        // 변수 이름이 충돌하는 것을 해결해주는 역할
+        // 자동으로 메모리 관리를 도와준다.
+        /* 1. 전역 스코프
+           2. 함수 스코프
+           3. 블록 스코프 */
+        
+        // 함수가 호출되면 함수가 사라진다. (return 키워드를 만나도)
+        // 함수는 실행되지 않는 한, 메모리를 차지하지 않는다.
+        var func1 = function() {
+            var a = 1;
+            var b = 2;
+            console.log(a + b);
+            return a + b;
+        }
+        // var a = 20;
+
+        // 함수 내부에 중첩 함수 선언
+        func1(); // 1 + 2 = 3
+
+        var func2 = function() {
+            var a = 1;
+            var b = 2;
+            
+            var func22 = function() {
+                var b = 5;
+                var c = 6;
+                a = a + b + c;
+                console.log(a);
+            }
+            func22();
+        }
+        func2(); // 1 + 5 + 6 = 12
+    </script>
+</body>
+</html>
