@@ -47,7 +47,7 @@
         }
 
         const private = outer(); // outer 함수가 getPrivate 함수 리턴, 주기 종료
-        let secretVal = private(); // 내부 함수가 참조되기 때문에 가비지 컬렉션 대상이 아님 => null, undefined 할당해서 끊어줘야함
+        let secretVal = private(); // 내부 함수가 참조되기 때문에 가비지 컬렉션 대상이 아님 => null, undefined 할당해서 연결을 끊어줘야함
         secretVal = null;
     </script>
 </body>
