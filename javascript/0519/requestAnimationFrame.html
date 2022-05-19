@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>키보드 이벤트 감지</title>
+    <style>
+        body {
+            margin: 200px;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        // 부드러운 애니메이션 효과를 위해 requestAnimationFrame 사용
+        const box = document.querySelector('.box');
+        let pos = 0;
+        let keys = {};
+
+        function move(e) {
+            keys[e.key] = true;
+        }
+
+        function stop(e) {
+            keys[e.key] = false;
+        }
+
+        document.addEventListener('keydown', move);
+        document.addEventListener('keyup', stop);
+
+        function play() {
+            if(keys.ArrowRight) {
+                pos += 5;
+                box.style.transform = `translateX(${pos}px)`;
+            } else if (keys.ArrowLeft) {
+                pos -= 5;
+                box.style.transform = `translateX(${pos}px)`;
+            }
+            window.requestAnimationFrame(play);
+        }
+
+        window.requestAnimationFrame(play);
+        // function move(e) {
+        //     const keyName = e.key;
+        //     if (keyName === 'ArrowLeft') {
+        //         pos -= 5;
+        //         box.style.transform = `translateX(${pos}px)`;
+        //     } else if (keyName === 'ArrowRight') {
+        //         pos += 5;
+        //         box.style.transform = `translateX(${pos}px)`;
+        //     }
+        // }
+        // document.addEventListener('keydown', move);
+    </script>
+</body>
+</html>
