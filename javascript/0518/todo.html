@@ -1,0 +1,48 @@
+<body>
+    <article id="app">
+        <h1 class="tit">✨ 힛츄윗댓 Todo Todo Todo List ✨</h1>
+        <ul class="box"></ul>
+        <section class="add-section">
+            <h2 class="add-tit">버튼을 누르면 할일이 추가됩니다.</h2>
+            <h2 class="add-tit">리스트를 클릭하면 할일이 삭제됩니다.</h2>
+            <input type="text" id="txt">
+            <button class="add-btn">추가하기</button>
+        </section>
+    </article>
+
+    <script>
+        const box = document.querySelector('.box');
+        const text = document.querySelector('#txt');
+        const button = document.querySelector('.add-btn');
+        class Todo{
+            constructor (text) {
+                this.text = text;
+            }
+        }
+
+        // todoList에 할 일 더하고 빼주는 기능 구현!
+        class ToDoManager {
+            constructor (list = []) {
+                this.list = list;
+            }
+            addItem() {
+                const todo = document.createElement('li');
+                todo.innerText = new Todo(text.value).text;
+                box.appendChild(todo);
+                text.value = '';
+                // this.list.push(new Todo());
+            }
+            removeItem(item) {
+                box.removeChild(item);
+            }
+        }
+
+        const manager = new ToDoManager();
+        button.addEventListener('click', manager.addItem);
+        box.addEventListener('click', e => {
+            if (e.target.nodeName === 'LI') {
+                manager.removeItem(e.target);
+            }
+        })
+    </script>
+  </body>

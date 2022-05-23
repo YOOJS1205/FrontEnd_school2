@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비동기 프로그래밍</title>
+</head>
+<body>
+    <script>
+        // const button = document.querySelector('.button');
+        // function helloworld() {
+        //     console.log('hello world');
+        // }
+
+        // // helloworld = 콜백함수
+        // button.addEventListener('click', helloworld);
+
+        // 동기 => 순서대로 진행, 전의 일이 끝나야 다음 일을 진행
+        // 비동기 => 동시에 진행, 끝나는 순서대로 진행 / 브라우저의 WEB api가 멀티스레드 => 비동기 처리 도와줌
+
+        // 1. 콜백 헬을 해결해줄 Promise 객체
+        // 성공한 케이스 (resolve) => then으로 넘어간다.
+        let p = new Promise(function(resolve, reject) {
+            resolve('hello world');
+        }).then(메시지 => {
+            alert(메시지);
+            return 메시지.split(' ')[0]
+        }).then(메시지 => {
+            alert(메시지);
+            return 메시지[0]
+        }).then(메시지 => {
+            alert(메시지);
+        });
+
+        // 실패한 케이스 (reject) => catch로 넘어간다.
+        let p2 = new Promise(function(resolve, reject) {
+            // resolve('hello world');
+            reject('hello world');
+        }).then(메시지 => {
+            alert(메시지);
+            return 메시지.split(' ')[0]
+        }).then(메시지 => {
+            alert(메시지);
+            return 메시지[0]
+        }).then(메시지 => {
+            alert(메시지);
+        }).catch(메시지 => {
+            alert('catch 실행!! :' + 메시지);
+        });
+
+        // 에러 던지기 throw Error('에러 발생!'); 일부러 에러를 생성한다.
+
+        // 예제
+        let p3 = new Promise(function(resolve, reject) {
+            setTimeout(() => resolve("끝남!"), 3000);
+        });
+        console.log('hello world');
+        console.log(p3);
+
+        /* 동기였다면? 3초 후에 hello world 실행
+        Promise 객체는 비동기 => hello world 먼저 출력
+        3초간 p3는 pending 상태
+        3초 후에 p3는 fulfilled 상태 */
+
+        // finally => 마지막에 무조건 실행
+    </script>
+</body>
+</html>

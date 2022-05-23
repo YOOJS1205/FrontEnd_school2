@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        setTimeout(() => {
+            console.log('5초 끝!');
+        }, 5000);
+
+        function cook(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        // async 함수는 반드시 프로미스 객체를 반환한다.
+        const myCake = async () => {
+            await cook(3000);
+            return '케이크';
+        }
+
+        const myCoffee = async () => {
+            await cook(2000);
+            return '커피';
+        }
+
+        const myCookie = async () => {
+            await cook(1500);
+            return '쿠키';
+        }
+
+        async function asyncProcess() {
+	        const cake = await myCake();
+	        console.log(cake);
+	        const coffee = await myCoffee();
+	        console.log(coffee);
+	        const cookie = await myCookie();
+	        console.log(cookie);
+        }
+
+        asyncProcess(); 
+    </script>
+</body>
+</html>

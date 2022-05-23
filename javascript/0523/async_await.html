@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        // promise 객체의 문제점
+        /* 1. 특정 조건에 따른 분기 나누기가 어렵다.
+        (원하는 순서의 조건으로 jump가 불가능) 
+        2. promise 객체도 then 지옥에 빠질 수 있다.
+        */
+
+        // async 함수 선언문 앞에 부착
+        // 항상 반환값을 resolved로 하는 프로미스로 반환
+
+        let snack = async function() {
+            return 'cake';
+        }
+        snack(); // fulfilled 된 promise 객체 반환
+
+        // 예제
+        const f = fetch('https://raw.githubusercontent.com/paullabkorea/coronaVaccinationStatus/main/data/data.json')
+        // response는 promise의 resolve에서 온 것.
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(json) {
+            console.log(json);
+            return json
+        })
+
+        // 예제2
+        const snack2 = () => Promise.resolve('와, 맛있겠다.');
+
+        async function mySnack() {
+            console.log('치즈 케이크 주세요!');
+
+            // await 사용하면 태스크 큐에 넣는다. 스택 전부 실행되면 나중에 실행
+            // 결론: await을 만나면 기다린다.
+            // 주의: await은 반드시 promise에만 사용이 가능하다.
+            const res = await snack2();
+            console.log(res);
+        }
+        console.log('주문 하시겠어요?');
+        mySnack();
+        console.log('주문하신 케이크 나왔습니다.');
+        /* 주문 하시겠어요?
+            치즈 케이크 주세요!
+            주문하신 케이크 나왔습니다.
+            와, 맛있겠다. */
+
+        // 함수는 호출스택이 다 사라져야 실행된다.
+        console.log(1);
+        setTimeout(실행, 0);
+        console.log(3);
+        function 실행() {console.log(2)};
+        // 1 3 2
+    </script>
+</body>
+</html>
