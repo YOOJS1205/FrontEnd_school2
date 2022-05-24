@@ -42,6 +42,7 @@
             // await 사용하면 태스크 큐에 넣는다. 스택 전부 실행되면 나중에 실행
             // 결론: await을 만나면 기다린다.
             // 주의: await은 반드시 promise에만 사용이 가능하다.
+            // await을 만나면 동기 처리
             const res = await snack2();
             console.log(res);
         }

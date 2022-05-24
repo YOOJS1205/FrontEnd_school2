@@ -23,7 +23,7 @@
         }
 
         const myCoffee = async () => {
-            await cook(2000);
+            await cook(3000);
             return '커피';
         }
 
@@ -33,6 +33,7 @@
         }
 
         async function asyncProcess() {
+            // await이 없으면 Promise 객체를 반환한다.
 	        const cake = await myCake();
 	        console.log(cake);
 	        const coffee = await myCoffee();

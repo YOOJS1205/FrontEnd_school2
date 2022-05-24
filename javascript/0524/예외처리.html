@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예외처리</title>
+</head>
+<body>
+    <script>
+        // 에러가 나도 실행이 멈추지 않는다. (예외 처리)
+        // 1. 에러가 없는 경우
+        try {
+            let x = 10;
+            let y = 10;
+            console.log(x + y);
+        } catch(e) {
+            console.log(e);
+        } finally {
+            console.log('end');
+        }
+
+        // 2. 에러가 발생한 경우
+        try {
+            let x = 10;
+            let y = 10;
+            console.log(x + y + z);
+        } catch(e) {
+            console.log(e);
+        } finally {
+            console.log('end');
+        }
+
+        try {
+            let x = 10;
+            let y = 10;
+            // 에러 객체 생성
+            throw new SyntaxError('문법 에러임');
+            console.log(x + y + z);
+        } catch(e) {
+            // 위의 에러 객체가 인수로 전달
+            console.error(e);
+        } finally {
+            console.log('end');
+        }
+    </script>
+</body>
+</html>

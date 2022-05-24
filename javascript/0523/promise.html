@@ -23,6 +23,7 @@
         // 성공한 케이스 (resolve) => then으로 넘어간다.
         let p = new Promise(function(resolve, reject) {
             resolve('hello world');
+            // hello world가 다음 then 메서드의 인수로 들어간다.
         }).then(메시지 => {
             alert(메시지);
             return 메시지.split(' ')[0]
