@@ -1,23 +1,20 @@
-import React, { useEffect, useContext, useRef, createContext } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react'
 
-// 요구사항)
-
-// useEffect -> 데이터 가져올 때 useEffect를 사용해서 로딩중 구현하기
-// useContext -> http://test.api.weniv.co.kr/ 데이터 가져와서 data를 useContext를 사용해서 자식 컴포넌트에 전달해주세요.
-// useRef -> 하트
-
-const App = () => {
-  const heart = createContext({
-    content: '❤️'
-  })
-
+function App() {
+  const [value, setValue] = useState(100);
+  
   useEffect(() => {
-  }, [])
-
-  const { content } = useContext(heart);
+    if (value >= 1000) {
+      setValue(300);
+    }
+  }, [value]);
+  
   return (
-    <div className='App'>
-      <h1>{content}</h1>
+    <div>
+      {/* <div style={{ width: value, height: value, backgroundColor: 'blue', transition: '1s all' }}></div> */}
+      <div style={{ width: value, height: value, backgroundColor: 'blue' }}></div>
+      <button onClick={() => {setValue(1000)}}>커져랏!</button>
+      <button onClick={() => {setValue(200)}}>작아져랏!</button>
     </div>
   )
 }

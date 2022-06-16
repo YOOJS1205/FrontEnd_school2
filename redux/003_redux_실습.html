@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.1/redux.js"></script>
+</head>
+
+<body>
+    <style>
+        .func {
+            margin: 20px 0;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 30px;
+        }
+        .container div {
+            border: 3px solid black;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+    <div class="func">
+        <input type="text" placeholder="텍스트를 입력하세요."/>
+        <button class="text">입력!!</button>
+        <button class="border-red">RED!!</button>
+        <button class="border-green">GREEN!!</button>
+        <button class="border-blue">BLUE!!</button>
+    </div>
+    <div class="container">
+        <div class="container-content"></div>
+        <div class="container-content"></div>
+        <div class="container-content"></div>
+        <div class="container-content"></div>
+        <div class="container-content"></div>
+        <div class="container-content"></div>
+    </div>
+    <script>
+        // subscribe = store에 저장된 애 값의 변화를 감지하고 함수를 실행
+        function reducer(state, action) {
+            if (state === undefined) {
+                return { borderColor: 'black', text: '' }
+            }
+
+            let newState;
+
+            if (action.type === 'CHANGE_COLOR') {
+                newState = { ...state, borderColor: action.borderColor }
+            } else if (action.type === 'CHANGE_TEXT') {
+                newState = { ...state, text: action.text }
+            }
+
+            return newState;
+        }
+
+        var store = Redux.createStore(
+            reducer,
+            window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() // redux dev tools를 사용하기 위한 코드
+        );
+
+        function changeText() {
+            var state = store.getState();
+
+            const input = document.querySelector('input');
+
+            document.querySelectorAll('.container-content').forEach(item => {
+                item.innerText = `${state.text}`;
+            })
+
+            document.querySelector('.text').addEventListener('click', () => {
+                store.dispatch({ type: 'CHANGE_TEXT', text: input.value})
+            })
+        }
+
+        store.subscribe(changeText); // 변화 감지 시 실행
+        changeText(); // 첫 실행
+
+        function borderRed() {
+            var state = store.getState();
+
+            document.querySelectorAll('.container-content').forEach(item => {
+                item.style.borderColor = `${state.borderColor}`;
+            })
+            
+            document.querySelector('.border-red').addEventListener('click', () => {
+                store.dispatch({type:'CHANGE_COLOR', borderColor:'red'});
+            })
+        }
+
+        store.subscribe(borderRed);
+        borderRed();
+
+        function borderGreen() {
+            var state = store.getState();
+
+            document.querySelectorAll('.container-content').forEach(item => {
+                item.style.borderColor = `${state.borderColor}`;
+            })
+            
+            document.querySelector('.border-green').addEventListener('click', () => {
+                store.dispatch({type:'CHANGE_COLOR', borderColor:'green'});
+            })
+        }
+
+        store.subscribe(borderGreen);
+        borderGreen();
+
+        function borderBlue() {
+            var state = store.getState();
+
+            document.querySelectorAll('.container-content').forEach(item => {
+                item.style.borderColor = `${state.borderColor}`;
+            })
+            
+            document.querySelector('.border-blue').addEventListener('click', () => {
+                store.dispatch({type:'CHANGE_COLOR', borderColor:'blue'});
+            })
+        }
+
+        store.subscribe(borderBlue);
+        borderBlue();
+    </script>
+</body>
+
+</html>
