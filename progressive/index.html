@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container"></div>
+
+    <script>
+        const container = document.querySelector('.container');
+        const testEl = document.createElement('div');
+
+        if (testEl.style.grid !== undefined) {
+            container.classList.add('layout-grid');
+        } else {
+            container.classList.add('layout-float');
+        }
+    </script>
+</body>
+</html>
