@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        article {
+            display: inline-block;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .viewer {
+            display: block;
+            font-size: 24px;
+            color: green;
+            margin: 50px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <strong class="viewer"></strong>
+        <label for="inpTxt">입력어</label>
+        <input id="inpTxt" type="text" class="inp-txt">
+        <button type="button" class="btn-push" onclick="pushText(viewer)">적용</button>
+    </article>
+
+    <script>
+        function pushText(target) {
+            let txt = "Hello Lions!!!";
+            document.querySelector(`.${target}`).textContent = txt;
+            const $inpTxt = document.querySelector('.inp-txt');
+            document.querySelector(`.${target}`).textContent = $inpTxt.value;
+        }
+    </script>
+</body>
+</html>
